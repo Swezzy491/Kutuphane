@@ -33,12 +33,24 @@ namespace Kitaplik
             dataGridView1.DataSource = dt;
             baglanti.Close();
         }
+        void ogrencileriGoster()
+        {
+            baglanti.Open();
+            OleDbDataAdapter da = new OleDbDataAdapter("SELECT * FROM ogrencikitap", baglanti);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            dataGridView2.DataSource = dt;
+            baglanti.Close();
+        }
 
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
             verileriGoster();
+            ogrencileriGoster();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -100,6 +112,16 @@ namespace Kitaplik
 
                 verileriGoster();
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

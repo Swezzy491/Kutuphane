@@ -44,6 +44,7 @@ namespace Kitaplik
                 else
                 {
                     ogrenci_form frm = new ogrenci_form();
+                    frm.giris_isim = textBox1.Text;
                     frm.ShowDialog();
 
                 }
